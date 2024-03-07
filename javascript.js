@@ -22,10 +22,7 @@ function fill_grid(dim) {
                     let blue = Math.floor(Math.random() * 255);
                     let color = `rgb(${red},${green},${blue}, 0.1)`;
                     e.target.style = `background: ${color}`;
-                } else {
-                    /*
-                    let op = +e.target.style.opacity;
-                    e.target.style.opacity = toString(op+0.1);*/
+                } else {        
                     change_alpha(e.target);
                 }
             });
@@ -64,6 +61,11 @@ grid_size_btn.addEventListener("click", (e) => {
         }
         new_grid(dim);
     }
+});
+
+const reset_btn = document.querySelector(".reset-btn");
+reset_btn.addEventListener("click", e => {
+    Array.from(document.querySelectorAll(".col")).forEach(sq => sq.style.background = "white")
 });
 
 

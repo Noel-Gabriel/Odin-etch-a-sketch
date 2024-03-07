@@ -4,6 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     gap: 8px;
+    background: darkred;
+}
+
+h1 {
+    color: yellow;
+    font-family: 'Brush Script MT', Arial;
 }
 
 .container {
@@ -12,11 +18,16 @@ body {
     flex-direction: column;
     height: 750px;
     width: 750px;
+    border: 4px solid black;
+    background:white;
 }
 
-.grid-size-btn {
+.etch-buttons button {
     height: 40px;
     width:80px;
+    border-radius: 8px;
+    background: yellow;
+    border: 1px solid black;
 }
 
 
