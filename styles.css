@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 750px;
+    width: 750px;
+}
+
+.grid-size-btn {
+    height: 40px;
+    width:80px;
+}
+
+
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid lightgrey;
+    flex:1;
+}
+
+.col {
+    border: 1px solid lightgrey;
+    flex:1;
+}
