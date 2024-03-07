@@ -10,12 +10,24 @@ function fill_grid(dim) {
         sub_div.classList.add("row");
         for(let j = 0; j  < dim; ++j) {
             const sub_sub_div = document.createElement("div");
+            sub_sub_div.style = "background: white";
             sub_sub_div.classList.add("div"+j);
             sub_sub_div.classList.add("col");
 
             // color 
             sub_sub_div.addEventListener("mouseover", e => {
-                e.target.style = "background: darkgrey";
+                if(e.target.style.background === "white") {
+                    let red = Math.floor(Math.random() * 255);
+                    let green = Math.floor(Math.random() * 255);
+                    let blue = Math.floor(Math.random() * 255);
+                    let color = `rgb(${red},${green},${blue}, 0.1)`;
+                    e.target.style = `background: ${color}`;
+                } else {
+                    /*
+                    let op = +e.target.style.opacity;
+                    e.target.style.opacity = toString(op+0.1);*/
+                    change_alpha(e.target);
+                }
             });
 
             sub_div.appendChild(sub_sub_div);
@@ -29,6 +41,14 @@ fill_grid(16);
 function new_grid(dim) {
     Array.from(grid_container.children).forEach(child => child.remove());
     fill_grid(dim);
+}
+
+function change_alpha(t) {
+    let rgba_values = t.style.background.match(/[\d]+(\.[\d]+)?/g);
+    console.log(rgba_values[3]);
+    rgba_values[3] = Math.min(1, Math.max(0, parseFloat(rgba_values[3]) + 0.1));
+    console.log(rgba_values[3]);
+    t.style.background = `rgba(${rgba_values.join(",")})`;
 }
 
 
