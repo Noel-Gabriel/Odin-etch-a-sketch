@@ -14,7 +14,7 @@ function fill_grid(dim) {
             sub_sub_div.classList.add("div"+j);
             sub_sub_div.classList.add("col");
 
-            // color 
+            // event
             sub_sub_div.addEventListener("mouseover", e => {
                 if(e.target.style.background === "white") {
                     let red = Math.floor(Math.random() * 255);
@@ -42,9 +42,7 @@ function new_grid(dim) {
 
 function change_alpha(t) {
     let rgba_values = t.style.background.match(/[\d]+(\.[\d]+)?/g);
-    console.log(rgba_values[3]);
     rgba_values[3] = Math.min(1, Math.max(0, parseFloat(rgba_values[3]) + 0.1));
-    console.log(rgba_values[3]);
     t.style.background = `rgba(${rgba_values.join(",")})`;
 }
 
